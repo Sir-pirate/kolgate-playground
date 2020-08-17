@@ -1,0 +1,18 @@
+.likedButton {
+  width: 7em;
+  display: inline-block;
+  padding: 0.25em;
+  border: 0.1em solid rgb(119, 29, 30);
+  margin: 0 0.3em 0.3em 0;
+  border-radius: 0.12em;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  color: white;
+  text-align: center;
+  transition: all 0.2s;
+  background-color: rgb(119, 29, 30);
+  align-items: end;
+  float: right;
+}
