@@ -8,6 +8,7 @@ import Fab from "@material-ui/core/Fab";
 import AddIcon from "@material-ui/icons/Add";
 import app from "./base";
 
+//Sample keys
 const LOCAL_STORAGE_KEY1 = "userUID123456789";
 const LOCAL_STORAGE_KEY2 = "userEmail123456789";
 const LOCAL_STORAGE_KEY3 = "userPassword123456789";
