@@ -25,6 +25,7 @@ export function Home() {
   const [user, setUser] = React.useState("");
 
   useEffect(() => {
+    //use local storage to store user data to stay logged-in
     const UID = localStorage.getItem(LOCAL_STORAGE_KEY1);
     const email = localStorage.getItem(LOCAL_STORAGE_KEY2);
     const password = localStorage.getItem(LOCAL_STORAGE_KEY3);
@@ -37,12 +38,10 @@ export function Home() {
         .signInWithEmailAndPassword(email, password)
         .then(function (result) {});
       const idUrl = "http://localhost:5000/users/" + UID;
-      console.log("UID is " + UID);
-      fetchUserInfo(idUrl); //fetch user info from mongoDB
+      fetchUserInfo(idUrl); //fetch user info from mongoDB after user successfully log-in
       setisLogIn(true);
     }
     fetchPosts();
-    console.log("fuck myself");
   }, []);
 
   function addPost(post) {
@@ -81,9 +80,7 @@ export function Home() {
             ups: [],
             downs: [],
           }),
-        }).then(() => fetchPosts());
-
-        console.log(newPost);
+        }).then(() => fetchPosts());//fetch posts again after user posted a new one
       }
     }
   };
@@ -105,6 +102,8 @@ export function Home() {
           </Fab>
         </div>
       </div>
+      //PostModal component is for user to create new post
+      //pass user data for making new post
       <PostModal
         userID={user.UID}
         userName={user.userName}
@@ -118,6 +117,8 @@ export function Home() {
             return new Date(b.fecha) - new Date(a.fecha);
           })
           .map((post) => (
+            //Post component displays individual posts
+            //pass user info into each post for comment sections
             <Post
               userName={user.userName}
               post={post}
